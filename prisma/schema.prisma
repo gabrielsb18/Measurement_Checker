@@ -11,4 +11,28 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model customers {
+    customer_code String @unique
+
+    measures measures[]
+}
+
+model measures {
+    measure_uuid String @id @default(uuid())
+    measure_value Float
+    image_url String
+    measure_datetime DateTime
+    measure_type EnumMeasuretype 
+    has_confirmed Boolean @default(false)
+
+    customer_code String
+    customer customers @relation(fields: [customer_code], references: [customer_code])
+}
+
+enum EnumMeasuretype {
+    WATER
+    GAS
 }
