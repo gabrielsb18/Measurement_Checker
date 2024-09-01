@@ -5,20 +5,25 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only  --ignore-watch node_modules src/server.ts",
-    "test": "test --jest -watchAll",
+    "test": "jest",
     "docs": "nodemon --exec /src/swagger.yaml"
   },
   "keywords": [],
   "author": "Gabriel Santos",
   "license": "ISC",
   "dependencies": {
+    "@google/generative-ai": "^0.17.1",
     "@prisma/client": "^5.19.0",
+    "@types/supertest": "^6.0.2",
+    "axios": "^1.7.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "jest": "^29.7.0",
     "nodemon": "^3.1.4",
     "supertest": "^7.0.0",
     "swagger": "^0.7.5",
+    "tmp": "^0.2.3",
+    "ts-jest": "^29.2.5",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.5.4",
     "yaml": "^2.5.0"
@@ -26,6 +31,7 @@
   "devDependencies": {
     "@eslint/js": "^9.9.1",
     "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.12",
     "add": "^2.0.6",
     "eslint": "^9.9.1",
     "eslint-config-prettier": "^9.1.0",
